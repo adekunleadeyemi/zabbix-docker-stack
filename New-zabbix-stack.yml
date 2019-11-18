@@ -21,7 +21,7 @@ volumes:
   zabbix_vol_ssh_keys:
 services:
   mysql:
-    image: nexus:5555/mysql:latest
+    image: {{'Image_location_url'}}/mysql:latest
     deploy:
       replicas: 1
       restart_policy:
@@ -36,7 +36,7 @@ services:
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
       MYSQL_DATABASE: "${MYSQL_DATABASE}"
   zabbix-server:
-    image: nexus:5555/zabbix-server-mysql:latest
+    image: {{'Image_location_url'}}/zabbix-server-mysql:latest
     deploy:
       replicas: 1
       restart_policy:
@@ -65,7 +65,7 @@ services:
       DB_SERVER_HOST: "mysql"
       DB_SERVER_PORT: "3306"
   zabbix-web:
-    image: 	nexus:5555/zabbix-web-nginx-mysql
+    image: 	{{'Image_location_url'}}/zabbix-web-nginx-mysql
     deploy:
       replicas: 1
       restart_policy:
@@ -85,7 +85,7 @@ services:
       DB_SERVER_PORT: "3306"
       ZBX_SERVER_HOST: "zabbix-server"
   zabbix-agent-1:
-    image: nexus:5555/zabbix-agent
+    image: {{'Image_location_url'}}/zabbix-agent
     deploy:
       replicas: 1 
       restart_policy:
